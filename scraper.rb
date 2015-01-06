@@ -2,16 +2,18 @@ require 'yaml'
 
 file = YAML.load_file('languages.yml')
 
-puts '['
+File.open('data.json', 'w') do |f|
+  f.puts '['
 
-file.each_with_index do |lang, i|
-  if i == file.size - 1
-    puts "  [\"#{lang[0]}\", \"#{lang[1]['color']}\"]"
-  else
-    if lang[1].has_key?('color') == true
-      puts "  [\"#{lang[0]}\", \"#{lang[1]['color']}\"],"
+  file.each_with_index do |lang, i|
+    if i == file.size - 1
+      f.puts "  [\"#{lang[0]}\", \"#{lang[1]['color']}\"]"
+    else
+      if lang[1].has_key?('color') == true
+        f.puts "  [\"#{lang[0]}\", \"#{lang[1]['color']}\"],"
+      end
     end
   end
-end
 
-puts ']'
+  f.puts ']'
+end
