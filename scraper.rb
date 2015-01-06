@@ -1,6 +1,6 @@
 require 'yaml'
 
-file = YAML.load_file('languages.yml')
+file = YAML.load_file(Net::HTTP.get(URI.parse('https://raw.githubusercontent.com/github/linguist/master/lib/linguist/languages.yml')))
 
 puts '['
 
