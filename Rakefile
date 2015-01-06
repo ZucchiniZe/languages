@@ -1,5 +1,4 @@
-require 'net/http'
-task :default => :download
+task :default => :generate
 
 task :generate do
   sh 'rm -rf data.json'
