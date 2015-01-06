@@ -3,10 +3,39 @@
   <head>
     <meta charset="UTF-8">
     <title>Language Colors</title>
-    <link rel="stylesheet" href="http://cdn.smtcs.rocks/bs/bs.css">
     <style>
       body {
         margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #333;
+      }
+      .container {
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+      h1 {
+        font-size: 36px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-family: inherit;
+        font-weight: 500;
+        line-height: 1.1;
+        color: inherit;
+      }
+      p {
+        margin: 0 0 10px;
+      }
+      code {
+        padding: 2px 4px;
+        font-size: 90%;
+        color: #c7254e;
+        background-color: #f9f2f4;
+        border-radius: 4px;
+        font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
       }
       #box {
         display: flex;
@@ -20,6 +49,29 @@
         flex: 1 1 auto;
         justify-content: center;
         align-items: center;
+      }
+      a.dark {
+        color: #333;
+        text-decoration: none;
+      }
+      a.light {
+        color: #EEE;
+        text-decoration: none;
+      }
+      a.light:hover, a.dark:hover {
+        text-decoration: underline;
+      }
+      @media (min-width: 1200px)
+      .container {
+        width: 1170px;
+      }
+      @media (min-width: 992px)
+      .container {
+        width: 970px;
+      }
+      @media (min-width: 768px)
+      .container {
+        width: 750px;
       }
     </style>
   </head>
