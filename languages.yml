@@ -224,7 +224,7 @@ AutoHotkey:
   extensions:
   - .ahk
   - .ahkl
-  tm_scope: none
+  tm_scope: source.ahk
   ace_mode: autohotkey
 
 AutoIt:
@@ -419,7 +419,7 @@ CLIPS:
 CMake:
   extensions:
   - .cmake
-  - .in
+  - .cmake.in
   filenames:
   - CMakeLists.txt
   ace_mode: text
@@ -450,12 +450,13 @@ Cap'n Proto:
   ace_mode: text
 
 CartoCSS:
+  type: programming
   aliases:
   - Carto
   extensions:
   - .mss
   ace_mode: text
-  tm_scope: none
+  tm_scope: source.css.mss
 
 Ceylon:
   type: programming
@@ -503,10 +504,10 @@ Clojure:
   - .cl2
   - .cljc
   - .cljs
+  - .cljs.hl
   - .cljscm
   - .cljx
   - .hic
-  - .hl
   filenames:
   - riemann.config
 
@@ -950,11 +951,13 @@ GAMS:
 
 GAP:
   type: programming
+  lexer: GAP
   extensions:
   - .g
   - .gap
   - .gd
   - .gi
+  - .tst
   tm_scope: none
   ace_mode: text
 
@@ -1171,6 +1174,7 @@ HTML:
   extensions:
   - .html
   - .htm
+  - .html.hl
   - .st
   - .xht
   - .xhtml
@@ -1196,7 +1200,7 @@ HTML+ERB:
   - erb
   extensions:
   - .erb
-  - .deface
+  - .erb.deface
   ace_mode: html_ruby
 
 HTML+PHP:
@@ -1211,7 +1215,7 @@ HTTP:
   type: data
   extensions:
   - .http
-  tm_scope: none
+  tm_scope: source.httpspec
   ace_mode: text
 
 Hack:
@@ -1227,7 +1231,7 @@ Haml:
   type: markup
   extensions:
   - .haml
-  - .deface
+  - .haml.deface
   ace_mode: haml
 
 Handlebars:
@@ -1267,13 +1271,13 @@ Haxe:
 
 Hy:
   type: programming
-  ace_mode: clojure
+  ace_mode: text
   color: "#7891b1"
   extensions:
   - .hy
   aliases:
   - hylang
-  tm_scope: none
+  tm_scope: source.hy
 
 IDL:
   type: programming
@@ -1381,13 +1385,6 @@ JSON:
   extensions:
   - .json
   - .lock
-  - .sublime-keymap
-  - .sublime-mousemap
-  - .sublime-project
-  - .sublime-settings
-  - .sublime-workspace
-  - .sublime_metrics
-  - .sublime_session
   filenames:
   - .jshintrc
   - composer.lock
@@ -1471,6 +1468,19 @@ JavaScript:
   - .pac
   - .sjs
   - .ssjs
+  - .sublime-build
+  - .sublime-commands
+  - .sublime-completions
+  - .sublime-keymap
+  - .sublime-macro
+  - .sublime-menu
+  - .sublime-mousemap
+  - .sublime-project
+  - .sublime-settings
+  - .sublime-theme
+  - .sublime-workspace
+  - .sublime_metrics
+  - .sublime_session
   - .xsjs
   - .xsjslib
   filenames:
@@ -1875,6 +1885,19 @@ NetLogo:
   tm_scope: source.lisp
   ace_mode: lisp
 
+NewLisp:
+  type: programming
+  lexer: NewLisp
+  color: "#eedd66"
+  extensions:
+  - .nl
+  - .lisp
+  - .lsp
+  interpreters:
+  - newlisp
+  tm_scope: source.lisp
+  ace_mode: lisp
+
 Nginx:
   type: markup
   extensions:
@@ -1891,6 +1914,7 @@ Nimrod:
   - .nim
   - .nimrod
   ace_mode: text
+  tm_scope: source.nim
 
 Ninja:
   type: data
@@ -1904,7 +1928,7 @@ Nit:
   color: "#0d8921"
   extensions:
   - .nit
-  tm_scope: none
+  tm_scope: source.nit
   ace_mode: text
 
 Nix:
@@ -2046,7 +2070,7 @@ OpenSCAD:
   extensions:
   - .scad
   tm_scope: none
-  ace_mode: text
+  ace_mode: scad
 
 Org:
   type: prose
@@ -2203,6 +2227,8 @@ Perl6:
   - .pm
   - .pm6
   - .t
+  filenames:
+  - Rexfile
   interpreters:
   - perl6
   tm_scope: none
@@ -2222,6 +2248,8 @@ Pike:
   extensions:
   - .pike
   - .pmod
+  interpreters:
+  - pike
   ace_mode: text
 
 Pod:
@@ -2605,6 +2633,14 @@ SCSS:
   extensions:
   - .scss
 
+SPARQL:
+  type: data
+  tm_scope: source.sparql
+  ace_mode: text
+  extensions:
+  - .sparql
+  - .rq
+
 SQF:
   type: programming
   color: "#FFCB1F"
@@ -2620,6 +2656,8 @@ SQL:
   ace_mode: sql
   extensions:
   - .sql
+  - .cql
+  - .ddl
   - .prc
   - .tab
   - .udf
@@ -2630,14 +2668,15 @@ STON:
   group: Smalltalk
   extensions:
   - .ston
-  tm_scope: source.json
-  ace_mode: lisp
+  tm_scope: source.smalltalk
+  ace_mode: text
 
 Sage:
   type: programming
   group: Python
   extensions:
   - .sage
+  - .sagews
   tm_scope: source.python
   ace_mode: python
 
@@ -2959,6 +2998,13 @@ Turing:
   tm_scope: none
   ace_mode: text
 
+Turtle:
+  type: data
+  extensions:
+  - .ttl
+  tm_scope: source.turtle
+  ace_mode: text
+
 Twig:
   type: markup
   group: PHP
@@ -3073,6 +3119,14 @@ Volt:
   tm_scope: source.d
   ace_mode: d
 
+Web Ontology Language:
+  type: markup
+  color: "#3994bc"
+  extensions:
+  - .owl
+  tm_scope: text.xml
+  ace_mode: xml
+
 WebIDL:
   type: programming
   extensions:
@@ -3109,6 +3163,7 @@ XML:
   - .dll.config
   - .filters
   - .fsproj
+  - .fxml
   - .glade
   - .grxml
   - .ivy
@@ -3129,6 +3184,8 @@ XML:
   - .rss
   - .scxml
   - .srdf
+  - .stTheme
+  - .sublime-snippet
   - .svg
   - .targets
   - .tmCommand
