@@ -54,13 +54,14 @@ APL:
   extensions:
   - .apl
   - .dyalog
-  tm_scope: none
+  tm_scope: source.apl
   ace_mode: text
 
 ASP:
   type: programming
   color: "#6a40fd"
   search_term: aspx-vb
+  tm_scope: text.html.asp
   aliases:
   - aspx
   - aspx-vb
@@ -81,10 +82,9 @@ ATS:
   - ats2
   extensions:
   - .dats
-  - .atxt
   - .hats
   - .sats
-  tm_scope: source.ocaml
+  tm_scope: source.ats
   ace_mode: ocaml
 
 ActionScript:
@@ -381,6 +381,7 @@ C++:
   - .cpp
   - .c++
   - .cc
+  - .cp
   - .cxx
   - .h
   - .h++
@@ -413,7 +414,7 @@ CLIPS:
   type: programming
   extensions:
   - .clp
-  tm_scope: none
+  tm_scope: source.clips
   ace_mode: text
 
 CMake:
@@ -622,7 +623,7 @@ Creole:
   wrap: true
   extensions:
   - .creole
-  tm_scope: none
+  tm_scope: text.html.creole
   ace_mode: text
 
 Crystal:
@@ -811,9 +812,11 @@ Emacs Lisp:
   - emacs
   filenames:
   - .emacs
+  - .emacs.desktop
   extensions:
   - .el
   - .emacs
+  - .emacs.desktop
   ace_mode: lisp
 
 EmberScript:
@@ -915,6 +918,7 @@ Forth:
   color: "#341708"
   extensions:
   - .fth
+  - .4TH
   - .4th
   - .F
   - .f
@@ -939,7 +943,7 @@ G-code:
   - .g
   - .gco
   - .gcode
-  tm_scope: none
+  tm_scope: source.gcode
   ace_mode: gcode
 
 GAMS:
@@ -951,7 +955,6 @@ GAMS:
 
 GAP:
   type: programming
-  lexer: GAP
   extensions:
   - .g
   - .gap
@@ -974,7 +977,7 @@ GDScript:
   type: programming
   extensions:
   - .gd
-  tm_scope: none
+  tm_scope: source.gdscript
   ace_mode: text
 
 GLSL:
@@ -1072,7 +1075,7 @@ Golo:
   color: "#f6a51f"
   extensions:
   - .golo
-  tm_scope: none
+  tm_scope: source.golo
   ace_mode: text
 
 Gosu:
@@ -1090,7 +1093,7 @@ Grace:
   type: programming
   extensions:
   - .grace
-  tm_scope: none
+  tm_scope: source.grace
   ace_mode: text
 
 Gradle:
@@ -1238,6 +1241,7 @@ Handlebars:
   type: markup
   aliases:
   - hbs
+  - htmlbars
   extensions:
   - .handlebars
   - .hbs
@@ -1373,7 +1377,7 @@ J:
   type: programming
   extensions:
   - .ijs
-  tm_scope: none
+  tm_scope: source.j
   ace_mode: text
 
 JSON:
@@ -1598,7 +1602,7 @@ Liquid:
   type: markup
   extensions:
   - .liquid
-  tm_scope: none
+  tm_scope: text.html.liquid
   ace_mode: liquid
 
 Literate Agda:
@@ -1836,6 +1840,13 @@ Mirah:
   - .mirah
   tm_scope: source.ruby
   ace_mode: ruby
+
+Modelica:
+  type: programming
+  extensions:
+  - .mo
+  tm_scope: source.modelica
+  ace_mode: text
 
 Monkey:
   type: programming
@@ -2086,7 +2097,7 @@ Ox:
   - .ox
   - .oxh
   - .oxo
-  tm_scope: none
+  tm_scope: source.ox
   ace_mode: text
 
 Oxygene:
@@ -2394,6 +2405,8 @@ Python:
   - python
   - python2
   - python3
+  aliases:
+  - rusthon
 
 Python traceback:
   type: data
@@ -2441,7 +2454,6 @@ R:
 
 RAML:
   type: data
-  lexer: YAML
   ace_mode: yaml
   tm_scope: source.yaml
   color: "#77d9fb"
@@ -2910,7 +2922,7 @@ TXL:
   type: programming
   extensions:
   - .txl
-  tm_scope: none
+  tm_scope: source.txl
   ace_mode: text
 
 Tcl:
@@ -3306,13 +3318,21 @@ Zimpl:
   tm_scope: none
   ace_mode: text
 
+desktop:
+  type: data
+  extensions:
+  - .desktop
+  - .desktop.in
+  tm_scope: source.desktop
+  ace_mode: text
+
 eC:
   type: programming
   search_term: ec
   extensions:
   - .ec
   - .eh
-  tm_scope: none
+  tm_scope: source.c.ec
   ace_mode: text
 
 edn:
