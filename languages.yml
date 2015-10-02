@@ -8,7 +8,8 @@
 #                     Use "text" if a mode does not exist.
 # wrap              - Boolean wrap to enable line wrapping (default: false)
 # extensions        - An Array of associated extensions (the first one is
-#                     considered the primary extension)
+#                     considered the primary extension, the others should be
+#                     listed alphabetically)
 # interpreters      - An Array of associated interpreters
 # searchable        - Boolean flag to enable searching (defaults to true)
 # search_term       - Deprecated: Some languages maybe indexed under a
@@ -49,6 +50,7 @@ AMPL:
   color: "#E6EFBB"
   extensions:
   - .ampl
+  - .mod
   tm_scope: source.ampl
   ace_mode: text
 
@@ -213,7 +215,7 @@ AspectJ:
   color: "#a957b0"
   extensions:
   - .aj
-  tm_scope: none
+  tm_scope: source.aspectj
   ace_mode: text
 
 Assembly:
@@ -225,6 +227,7 @@ Assembly:
   extensions:
   - .asm
   - .a51
+  - .inc
   - .nasm
   tm_scope: source.asm.x86
   ace_mode: assembly_x86
@@ -411,6 +414,7 @@ C++:
   - .hh
   - .hpp
   - .hxx
+  - .inc
   - .inl
   - .ipp
   - .tcc
@@ -496,6 +500,13 @@ Chapel:
   - chpl
   extensions:
   - .chpl
+  ace_mode: text
+
+Charity:
+  type: programming
+  extensions:
+    - .ch
+  tm_scope: none
   ace_mode: text
 
 ChucK:
@@ -606,6 +617,7 @@ Common Lisp:
   - .lsp
   - .ny
   - .podsl
+  - .sexp
   interpreters:
   - lisp
   - sbcl
@@ -667,7 +679,7 @@ Crystal:
   extensions:
   - .cr
   ace_mode: ruby
-  tm_scope: source.ruby
+  tm_scope: source.crystal
   interpreters:
   - crystal
 
@@ -739,6 +751,14 @@ DM:
   - byond
   tm_scope: source.c++
   ace_mode: c_cpp
+
+DNS Zone:
+  type: data
+  extensions:
+  - .zone
+  - .arpa
+  tm_scope: text.zone_file
+  ace_mode: text
 
 DTrace:
   type: programming
@@ -823,6 +843,14 @@ ECL:
   - .eclxml
   tm_scope: none
   ace_mode: text
+
+ECLiPSe:
+  type: programming
+  group: prolog
+  extensions:
+  - .ecl
+  tm_scope: source.prolog.eclipse
+  ace_mode: prolog
 
 Eagle:
   type: markup
@@ -1041,6 +1069,7 @@ GAS:
   group: Assembly
   extensions:
   - .s
+  - .ms
   tm_scope: source.asm.x86
   ace_mode: assembly_x86
 
@@ -1209,13 +1238,26 @@ Groff:
   extensions:
   - .man
   - '.1'
+  - .1in
+  - .1m
+  - .1x
   - '.2'
   - '.3'
+  - .3in
+  - .3m
+  - .3qt
+  - .3x
   - '.4'
   - '.5'
   - '.6'
   - '.7'
+  - '.8'
+  - '.9'
   - .l
+  - .ms
+  - .n
+  - .rno
+  - .roff
   tm_scope: text.groff
   aliases:
   - nroff
@@ -1244,6 +1286,14 @@ Groovy Server Pages:
   tm_scope: text.html.jsp
   ace_mode: jsp
 
+HCL:
+  type: programming
+  extensions:
+    - .hcl
+    - .tf
+  ace_mode: ruby
+  tm_scope: source.ruby
+
 HTML:
   type: markup
   tm_scope: text.html.basic
@@ -1255,6 +1305,7 @@ HTML:
   - .html
   - .htm
   - .html.hl
+  - .inc
   - .st
   - .xht
   - .xhtml
@@ -1317,6 +1368,7 @@ Haml:
 Handlebars:
   type: markup
   color: "#01a9d6"
+  group: HTML
   aliases:
   - hbs
   - htmlbars
@@ -1331,7 +1383,7 @@ Harbour:
   color: "#0e60e3"
   extensions:
   - .hb
-  tm_scope: none
+  tm_scope: source.harbour
   ace_mode: text
 
 Haskell:
@@ -1345,7 +1397,7 @@ Haskell:
 Haxe:
   type: programming
   ace_mode: haxe
-  color: "#f7941e"
+  color: "#df7900"
   extensions:
   - .hx
   - .hxsl
@@ -1461,6 +1513,14 @@ Isabelle:
   tm_scope: source.isabelle.theory
   ace_mode: text
 
+Isabelle ROOT:
+  type: programming
+  group: Isabelle
+  filenames:
+  - ROOT
+  tm_scope: source.isabelle.root
+  ace_mode: text
+
 J:
   type: programming
   color: "#9EEDFF"
@@ -1487,7 +1547,9 @@ JSON:
   searchable: false
   extensions:
   - .json
+  - .geojson
   - .lock
+  - .topojson
   filenames:
   - .jshintrc
   - composer.lock
@@ -1508,11 +1570,20 @@ JSONLD:
   tm_scope: source.js
 
 JSONiq:
+  color: "#40d47e"
   type: programming
   ace_mode: jsoniq
   extensions:
   - .jq
-  tm_scope: source.xquery
+  tm_scope: source.jq
+
+JSX:
+  type: programming
+  group: JavaScript
+  extensions:
+  - .jsx
+  tm_scope: source.js.jsx
+  ace_mode: javascript
 
 Jade:
   group: HTML
@@ -1567,7 +1638,6 @@ JavaScript:
   - .jsfl
   - .jsm
   - .jss
-  - .jsx
   - .njs
   - .pac
   - .sjs
@@ -1611,6 +1681,7 @@ KiCad:
   type: programming
   extensions:
   - .sch
+  - .kicad_pcb
   tm_scope: none
   ace_mode: text
 
@@ -1623,7 +1694,7 @@ Kit:
 
 Kotlin:
   type: programming
-  color: "#EA4DFA"
+  color: "#F18E33"
   extensions:
   - .kt
   - .ktm
@@ -1659,6 +1730,7 @@ LSL:
   ace_mode: lsl
   extensions:
   - .lsl
+  - .lslp
   interpreters:
   - lsl
   color: '#3d9970'
@@ -1667,8 +1739,8 @@ LabVIEW:
   type: programming
   extensions:
   - .lvproj
-  tm_scope: none
-  ace_mode: text
+  tm_scope: text.xml
+  ace_mode: xml
 
 Lasso:
   type: programming
@@ -1741,6 +1813,13 @@ Linker Script:
   - .lds
   filenames:
   - ld.script
+  tm_scope: none
+  ace_mode: text
+
+Linux Kernel Module:
+  type: data
+  extensions:
+  - .mod
   tm_scope: none
   ace_mode: text
 
@@ -1883,6 +1962,7 @@ Makefile:
   - GNUmakefile
   - Kbuild
   - Makefile
+  - Makefile.inc
   - makefile
   interpreters:
   - make
@@ -2010,6 +2090,13 @@ Modelica:
   tm_scope: source.modelica
   ace_mode: text
 
+Modula-2:
+  type: programming
+  extensions:
+  - .mod
+  tm_scope: source.modula2
+  ace_mode: text
+
 Module Management System:
   type: programming
   extensions:
@@ -2047,6 +2134,14 @@ Myghty:
   extensions:
   - .myt
   tm_scope: none
+  ace_mode: text
+
+NCL:
+  type: programming
+  color: "#28431f"
+  extensions:
+  - .ncl
+  tm_scope: source.ncl
   ace_mode: text
 
 NL:
@@ -2342,6 +2437,7 @@ PHP:
   - .aw
   - .ctp
   - .fcgi
+  - .inc
   - .php3
   - .php4
   - .php5
@@ -2358,6 +2454,7 @@ PLSQL:
   type: programming
   ace_mode: sql
   tm_scope: source.plsql.oracle
+  color: "#dad8d8"
   extensions:
   - .pls
   - .pkb
@@ -2429,6 +2526,7 @@ Pascal:
   - .pas
   - .dfm
   - .dpr
+  - .inc
   - .lpr
   - .pp
   ace_mode: pascal
@@ -2474,6 +2572,16 @@ Perl6:
   - perl6
   tm_scope: source.perl.6
   ace_mode: perl
+
+PicoLisp:
+  type: programming
+  extensions:
+  - .l
+  interpreters:
+  - picolisp
+  - pil
+  tm_scope: source.lisp
+  ace_mode: lisp
 
 PigLatin:
   type: programming
@@ -2541,11 +2649,11 @@ Prolog:
   color: "#74283c"
   extensions:
   - .pl
-  - .ecl
   - .pro
   - .prolog
   interpreters:
   - swipl
+  tm_scope: source.prolog
   ace_mode: prolog
 
 Propeller Spin:
@@ -2576,7 +2684,7 @@ Public Key:
 
 Puppet:
   type: programming
-  color: "#332A77"
+  color: "#302B6D"
   extensions:
   - .pp
   filenames:
@@ -2605,7 +2713,7 @@ PureScript:
   color: "#1D222D"
   extensions:
   - .purs
-  tm_scope: source.haskell
+  tm_scope: source.purescript
   ace_mode: haskell
 
 Python:
@@ -2683,7 +2791,7 @@ R:
   ace_mode: r
 
 RAML:
-  type: data
+  type: markup
   ace_mode: yaml
   tm_scope: source.yaml
   color: "#77d9fb"
@@ -2726,7 +2834,7 @@ RMarkdown:
   ace_mode: markdown
   extensions:
   - .rmd
-  tm_scope: none
+  tm_scope: source.gfm
 
 Racket:
   type: programming
@@ -2743,7 +2851,7 @@ Racket:
 
 Ragel in Ruby Host:
   type: programming
-  color: "#e17600"
+  color: "#9d5200"
   extensions:
   - .rl
   aliases:
@@ -2856,6 +2964,7 @@ Ruby:
   - .pryrc
   - Appraisals
   - Berksfile
+  - Brewfile
   - Buildfile
   - Deliverfile
   - Fastfile
@@ -2894,6 +3003,25 @@ SCSS:
   extensions:
   - .scss
 
+SMT:
+  type: programming
+  extensions:
+  - .smt2
+  - .smt
+  interpreters:
+  - boolector
+  - cvc4
+  - mathsat5
+  - opensmt
+  - smtinterpol
+  - smt-rat
+  - stp
+  - verit
+  - yices2
+  - z3
+  tm_scope: source.smt
+  ace_mode: text
+
 SPARQL:
   type: data
   tm_scope: source.sparql
@@ -2919,6 +3047,7 @@ SQL:
   - .sql
   - .cql
   - .ddl
+  - .inc
   - .prc
   - .tab
   - .udf
@@ -3084,6 +3213,7 @@ Slim:
   color: "#ff8f77"
   extensions:
   - .slim
+  tm_scope: text.slim
   ace_mode: text
 
 Smali:
@@ -3117,6 +3247,7 @@ SourcePawn:
   - sourcemod
   extensions:
   - .sp
+  - .inc
   - .sma
   tm_scope: source.sp
   ace_mode: text
@@ -3261,6 +3392,7 @@ Text:
   extensions:
   - .txt
   - .fr
+  - .ncl
   tm_scope: none
   ace_mode: text
 
@@ -3425,6 +3557,14 @@ Volt:
   tm_scope: source.d
   ace_mode: d
 
+Vue:
+  type: markup
+  color: "#2c3e50"
+  extensions:
+  - .vue
+  tm_scope: text.html.vue
+  ace_mode: html
+
 Web Ontology Language:
   type: markup
   color: "#9cc9dd"
@@ -3439,6 +3579,16 @@ WebIDL:
   - .webidl
   tm_scope: source.webidl
   ace_mode: text
+
+X10:
+  type: programming
+  aliases:
+  - xten
+  ace_mode: text
+  extensions:
+  - .x10
+  color: "#4B6BEF"
+  tm_scope: source.x10
 
 XC:
   type: programming
@@ -3477,10 +3627,12 @@ XML:
   - .iml
   - .ivy
   - .jelly
+  - .jsproj
   - .kml
   - .launch
   - .mdpolicy
   - .mm
+  - .mod
   - .mxml
   - .nproj
   - .nuspec
@@ -3536,6 +3688,14 @@ XML:
   - Web.config
   - packages.config
 
+XPages:
+  type: programming
+  extensions:
+  - .xsp-config
+  - .xsp.metadata
+  tm_scope: none
+  ace_mode: xml
+
 XProc:
   type: programming
   extensions:
@@ -3554,6 +3714,7 @@ XQuery:
   - .xqm
   - .xqy
   ace_mode: xquery
+  tm_scope: source.xq
 
 XS:
   type: programming
@@ -3599,7 +3760,9 @@ YAML:
   - .yml
   - .reek
   - .rviz
+  - .syntax
   - .yaml
+  - .yaml-tmlanguage
   ace_mode: yaml
 
 Yacc:
@@ -3704,7 +3867,13 @@ wisp:
 xBase:
   type: programming
   color: "#403a40"
+  aliases:
+  - advpl
+  - clipper
+  - foxpro
   extensions:
   - .prg
-  tm_scope: none
+  - .ch
+  - .prw
+  tm_scope: source.harbour
   ace_mode: text
